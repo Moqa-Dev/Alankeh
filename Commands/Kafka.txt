@@ -1,0 +1,12 @@
+==============================================================================================================
+Kafka |
+-------
+#List Topics:
+	kafka-topics --list --zookeeper zookeeper:2181
+#Create Topic:
+	kafka-topics --create --topic {{TopicName}} --partitions 1 --replication-factor 1 --zookeeper zookeeper:2181
+#Open Console Producer:
+	kafka-console-producer --broker-list kafka:9092 --topic {{TopicName}}
+#Open Console Consumer:
+	kafka-console-consumer --bootstrap-server kafka:9092 --topic {{TopicName}}
+==============================================================================================================

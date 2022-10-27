@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  debian:
+    image: debian:latest
+    container_name: debian
+    volumes:
+      - ./Volumes/Debian:/DataVolume
+    ports:
+      - "2222:22"
+    command: tail -f /dev/null

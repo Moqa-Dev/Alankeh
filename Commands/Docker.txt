@@ -1,0 +1,49 @@
+==============================================================================================================
+Docker |
+--------
+#Links
+	https://docs.docker.com/desktop/install/windows-install/
+	https://docs.docker.com/engine/reference/commandline/docker/
+#Run Container
+	docker run --name {{Name}} -p {{Port}}:{{Port}} -e {{EnvVarName}}={{EnvVarValue}}
+#Start Container Shell Session:
+	docker exec -it {CONTAINER-NAME} /bin/sh
+#List Running Containers
+	docker ps -a
+#Logs
+	docker logs --tail {{Lines}} -tf {TAG}
+	docker logs -tf {TAG}
+	docker logs -t {TAG}
+	docker logs -t {TAG} 2>&1 | grep ERROR
+#Log Files
+	/var/lib/docker/containers/<container_id>/<container_id>-json.log
+	sed -n '40000,40100p' 9d405fe7227ba7b3efaf5eecbd82e20838a5cb3ee5e95bd4874c53a6214a9783-json.log
+	More
+==============================================================================================================
+Compose |
+---------
+#Links
+	https://docs.docker.com/compose/reference/
+	https://docs.docker.com/engine/reference/commandline/compose/
+#Run Compose Containers:
+	docker compose up -d
+#Start Compose Containers:
+	docker compose start
+#Stop Compose Containers:
+	docker compose stop
+#Delete Compose Containers:
+	docker compose down
+#Fill Env Data in Compose
+	docker compose  --env-file {{EnvFilePath}} convert
+==============================================================================================================
+Swarm |
+-------
+#List
+	docker service ls
+#Logs
+	docker service logs 
+#Help
+	docker service --help
+#Restart
+	docker service scale {{Deployment}}=0 && docker service scale {{Deployment}}=1
+==============================================================================================================

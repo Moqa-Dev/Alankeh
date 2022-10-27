@@ -1,0 +1,16 @@
+################################################################################
+# docker-compose up -d
+################################################################################
+version: '3.8'
+
+services:
+  jupyter:
+    image: jupyter/datascience-notebook:latest
+    container_name: jupyter
+    ports:
+      - 8888:8888
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+      JUPYTER_TOKEN: "docker"
+    volumes:
+      - ./Volumes/Jupyter:/home/jovyan/work

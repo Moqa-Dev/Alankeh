@@ -1,0 +1,10 @@
+# users are defined in config folder
+
+#Port 29092 has no Auth used only for console consumers and producers
+#Port 9092 is SASL_PLAIN used for outside docker communication
+docker-compose up -d
+docker exec -it kafka /bin/sh
+kafka-topics --list --zookeeper zookeeper:2181
+kafka-topics --create --topic test.shaheen --partitions 1 --replication-factor 1 --zookeeper zookeeper:2181
+kafka-console-producer --broker-list kafka:29092 --topic test.shaheen
+kafka-console-consumer --bootstrap-server localhost:29092 --topic test.shaheen 

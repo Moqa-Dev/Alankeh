@@ -1,0 +1,17 @@
+==============================================================================================================
+Maven |
+-------
+#Dependency Tree
+	mvn dependency:tree
+#Fat Jar
+	mvn clean install
+#Thin Jar
+	mvn clean install package dependency:copy-dependencies
+
+#Flags:
+	Maven Profile: -P {{Profile}} 
+	Skip Tests: -Dmaven.test.skip=true 
+	Set Env Var: -D{{VarName}}={{VarValue}}
+	Spring Profile: -Dspring.profiles.active={{Profile}}
+	JVM TimeZone: -Duser.timezone=GMT
+==============================================================================================================

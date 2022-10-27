@@ -1,0 +1,23 @@
+==============================================================================================================
+HBASE |
+-------
+#Open HBase Shell
+	hbase shell
+#List Tables
+	list
+#Create Table
+	create '{{TableName}}', '{{ColumnFamily}}'
+#Insert New Row
+	put "{{TableName}}", "{{ID}}", "{{ColumnName}}:{{Value}}", "{{Value}}"
+#Disable Table
+	disable '{{TableName}}'
+#Drop Table
+	drop '{{TableName}}'
+#Scans & Filters
+	scan "{{TableName}}"
+	scan "{{TableName}}", {ROWPREFIXFILTER => '{{SearchText}}'}
+	scan "{{TableName}}", {FILTER => "(RowFilter (=, 'regexstring:{{RegexString}}'))"}
+	scan '{{TableName}}', { COLUMNS => '{{ColumnFamily}}:{{ColumnName}}', FILTER => "ValueFilter( =,'binaryprefix:{{Value}}' )"}
+	scan "{{TableName}}", {FILTER => "SingleColumnValueFilter('{{ColumnFamily}}', 'ignition', =, 'binary:true')"}
+	scan "{{TableName}}", {FILTER => "(RowFilter (=, 'regexstring:{{RegexString}}'))", COLUMNS => "{{ColumnFamily}}:{{ColumnName}}"}
+==============================================================================================================

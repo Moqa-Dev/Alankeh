@@ -1,0 +1,17 @@
+version: '3.8'
+
+networks:
+  Redis_Network:
+    driver: bridge
+
+services:
+
+  redis:
+    image: redis:6.2.6-alpine
+    ports:
+      - '6379:6379'
+    command: redis-server
+    volumes:
+      - ./volumes/redis/data:/server/redis/data
+    networks:
+      - Redis_Network

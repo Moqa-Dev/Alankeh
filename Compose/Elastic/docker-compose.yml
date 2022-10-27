@@ -1,0 +1,47 @@
+version: '3.8'
+
+networks:
+  Elastic_Network:
+    driver: bridge
+
+services:
+
+#ELASTIC
+  elastic:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.12.0
+    container_name: elastic
+    environment:
+      - node.name=elastic
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./Volumes/Elastic/ElasticSearch:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+      - 9300:9300
+    networks:
+      - Elastic_Network
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.12.0
+    container_name: kibana
+    ports:
+      - 5601:5601
+    environment:
+      ELASTICSEARCH_URL: http://elastic:9200
+      ELASTICSEARCH_HOSTS: '["http://elastic:9200"]'
+    networks:
+      - Elastic_Network
+
+  cerebro:
+    image: lmenezes/cerebro
+    container_name: cerebro
+    ports:
+      - 9000:9000
+    networks:
+      - Elastic_Network

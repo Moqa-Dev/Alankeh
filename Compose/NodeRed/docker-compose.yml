@@ -1,0 +1,14 @@
+################################################################################
+# docker-compose up -d
+################################################################################
+version: '3.8'
+
+services:
+  node-red:
+    image: nodered/node-red:latest
+    container_name: node-red
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./Volumes/node-red:/data
+

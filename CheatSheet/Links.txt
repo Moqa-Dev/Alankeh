@@ -1,0 +1,21 @@
+# Shell
+https://ss64.com/
+
+# Markdown
+https://github.com/tchapi/markdown-cheatsheet/blob/master/README.md
+
+# System Design
+https://gist.github.com/vasanthk/485d1c25737e8e72759f
+
+# Algorithms and Data Structures
+https://algs4.cs.princeton.edu/cheatsheet/
+
+# UML
+https://www.guru99.com/uml-cheatsheet-reference-guide.html
+
+# Design Patterns
+https://refactoring.guru/design-patterns/catalog
+
+# C4 Model
+https://www.infoq.com/articles/C4-architecture-model/
+https://c4model.com/
